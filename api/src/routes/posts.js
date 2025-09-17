@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { prisma } from "../db/prisma.js";
+import { requireAuth } from "../middleware/requireAuth.js";
 
 const router = Router();
 
@@ -15,10 +16,9 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
-router.post("/", async (req, res, next) => {
+router.post("/", requireAuth, async (req, res, next) => {
   try {
-    const { title, content } = req.body;
-
+    const { title, content, published } = req.body;
     if (!title || !content) {
       return res.status(400).json({ error: "Title and content required" });
     }
@@ -27,12 +27,35 @@ router.post("/", async (req, res, next) => {
       data: {
         title,
         content,
-        // authorId will need to come from auth later
-        authorId: 1, // temp: assume user 1 exists
+        published: !!published,
+        authorId: req.user.id,
       },
     });
 
     res.status(201).json(post);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// GET /posts/:uid — fetch a single post by uid
+router.get("/:uid", async (req, res, next) => {
+  try {
+    const { uid } = req.params;
+
+    const post = await prisma.post.findUnique({
+      where: { uid },
+      include: {
+        author: { select: { uid: true, username: true, email: true } },
+        _count: { select: { comments: true } },
+      },
+    });
+
+    if (!post) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+
+    res.json(post);
   } catch (err) {
     next(err);
   }
