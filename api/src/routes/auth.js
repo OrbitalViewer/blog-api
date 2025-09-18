@@ -4,6 +4,7 @@ import { z } from "zod";
 import { prisma } from "../db/prisma.js";
 import { signJwt } from "../utils/jwt.js";
 import { requireAuth } from "../middleware/requireAuth.js";
+import { optionalAuth } from "../middleware/optionalAuth.js";
 
 const router = Router();
 
@@ -78,6 +79,11 @@ router.post("/login", async (req, res, next) => {
 // GET /auth/me — verify token and return current user
 router.get("/me", requireAuth, async (req, res) => {
   res.json({ user: req.user });
+});
+
+// GET /auth/whoami — does NOT require auth; attaches user if token present
+router.get("/whoami", optionalAuth, (req, res) => {
+  res.json({ user: req.user ?? null });
 });
 
 export default router;
