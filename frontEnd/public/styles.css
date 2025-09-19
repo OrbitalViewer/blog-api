@@ -1,0 +1,103 @@
+:root {
+  font-family: system-ui, sans-serif;
+}
+body {
+  margin: 0;
+}
+.site-header {
+  background: #111;
+  color: #fff;
+}
+.nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+}
+.nav .spacer {
+  flex: 1;
+}
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.api-controls {
+  padding: 0.5rem 1rem;
+  background: #222;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.post-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.post-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.post-meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+.hidden {
+  display: none !important;
+}
+.error {
+  color: #b00020;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.comment-card {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+.comment-head {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+.comment-body {
+  white-space: pre-wrap;
+}
+.comment-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.comment-actions button {
+  padding: 0.25rem 0.5rem;
+}
+.comment-edit {
+  width: 100%;
+}
+
+#editor {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+}
+#editor label {
+  display: block;
+  margin: 0.5rem 0;
+}
+.post-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}

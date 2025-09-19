@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./js/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="/">My Blog</a>
+        <div class="spacer"></div>
+        <a id="home-link" href="/">Home</a>
+        <a id="my-posts-link" href="./pages/me.html" class="hidden">My Posts</a>
+        <a id="login-link" href="./pages/login.html">Login</a>
+        <a id="register-link" href="./pages/register.html">Register</a>
+        <a id="logout-link" href="#" class="hidden">Logout</a>
+      </nav>
+
+      <div class="api-controls">
+        <label for="api-base">API URL:</label>
+        <input id="api-base" placeholder="http://localhost:3000" />
+        <button id="save-api">Save</button>
+        <small id="api-status"></small>
+      </div>
+    </header>
+
+    <main id="content" class="container">
+      <h1>Latest Posts</h1>
+      <ul id="post-list" class="post-list"></ul>
+    </main>
+  </body>
+</html>

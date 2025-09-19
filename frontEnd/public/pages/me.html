@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Posts</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../js/me.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="/">My Blog</a>
+        <div class="spacer"></div>
+        <a href="/">Home</a>
+        <a id="logout-link" href="#">Logout</a>
+      </nav>
+    </header>
+    <main class="container">
+      <h1>My Posts</h1>
+      <button id="new-post">New Post</button>
+      <!-- simple inline editor modal -->
+      <section id="editor" class="hidden">
+        <h2 id="editor-title">New Post</h2>
+        <form id="post-form">
+          <label>Title <input name="title" required /></label>
+          <label
+            >Content <textarea name="content" rows="6" required></textarea>
+          </label>
+          <label>
+            <input type="checkbox" name="published" />
+            Published
+          </label>
+          <button type="submit">Save</button>
+          <button id="cancel-edit" type="button">Cancel</button>
+          <p id="post-error" class="error"></p>
+        </form>
+      </section>
+      <ul id="my-posts" class="post-list"></ul>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Post</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../js/post.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="/">My Blog</a>
+        <div class="spacer"></div>
+        <a href="/">Home</a>
+        <a id="my-posts-link" href="./me.html" class="hidden">My Posts</a>
+        <a id="login-link" href="./login.html">Login</a>
+        <a id="register-link" href="./register.html">Register</a>
+        <a id="logout-link" href="#" class="hidden">Logout</a>
+      </nav>
+      <div class="api-controls">
+        <label for="api-base">API URL:</label>
+        <input id="api-base" placeholder="http://localhost:3000" />
+        <button id="save-api">Save</button>
+        <small id="api-status"></small>
+      </div>
+    </header>
+
+    <main class="container">
+      <article id="post">
+        <h1 id="post-title"></h1>
+        <div class="post-meta" id="post-meta"></div>
+        <p id="post-content"></p>
+      </article>
+
+      <section id="comments">
+        <h2>Comments</h2>
+        <ul id="comment-list" class="comment-list"></ul>
+      </section>
+
+      <section id="add-comment">
+        <h3>Add a comment</h3>
+        <form id="comment-form">
+          <div id="guest-fields" class="row">
+            <label
+              >Display name
+              <input name="displayName" placeholder="Anonymous" />
+            </label>
+          </div>
+          <label
+            >Comment
+            <textarea name="content" rows="4" required></textarea>
+          </label>
+          <button type="submit">Post comment</button>
+          <p id="comment-error" class="error"></p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

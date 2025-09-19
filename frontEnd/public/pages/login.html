@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../js/login.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="/">My Blog</a>
+        <div class="spacer"></div>
+        <a href="/">Home</a>
+        <a href="./register.html">Register</a>
+      </nav>
+    </header>
+    <main class="container">
+      <h1>Login</h1>
+      <form id="login-form">
+        <label>Email <input name="email" type="email" required /></label>
+        <label
+          >Password <input name="password" type="password" required
+        /></label>
+        <button type="submit">Login</button>
+      </form>
+      <p id="login-error" class="error"></p>
+    </main>
+  </body>
+</html>
